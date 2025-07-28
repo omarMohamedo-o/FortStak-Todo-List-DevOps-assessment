@@ -1,20 +1,18 @@
-# Use official Node.js LTS image
-FROM node:18-alpine
+# Use Node.js LTS base image
+FROM node:18
 
 # Set working directory
 WORKDIR /app
 
-# Copy only package.json first for layer caching
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Expose port
-EXPOSE 3000
+# Expose the app port
+EXPOSE 4000
 
 # Start the app
-CMD ["npm", "start"]
+CMD ["node", "app.js"]

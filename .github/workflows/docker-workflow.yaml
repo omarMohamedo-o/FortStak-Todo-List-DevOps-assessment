@@ -41,6 +41,7 @@ jobs:
           tags: |
             type=sha,format=long
             type=ref,event=branch
+            type=raw,value=latest,enable={{is_default_branch}}
           labels: |
             org.opencontainers.image.source=${{ github.repository }}
             org.opencontainers.image.revision=${{ github.sha }}
@@ -52,3 +53,5 @@ jobs:
           push: ${{ github.ref == 'refs/heads/master' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

@@ -9,8 +9,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  DOCKERHUB_USERNAME: 0marmohamed
-  IMAGE_NAME: ${{ env.DOCKERHUB_USERNAME }}/fortstak-todo-list-devops-assessment
+  IMAGE_NAME: ${{ vars.IMAGE_NAME }}
 
 jobs:
   build-and-push:

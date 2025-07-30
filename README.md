@@ -94,7 +94,7 @@ fortstak-todo-list-devops-assessment/
 
 ### Verification
 - [x] Docker image: `0marmohamed/fortstak-todo-list-devops-assessment:latest`
-- **Screenshot**: ![CI Pipeline](screenshots/ci-cd-pipeline-run.png)
+- **Screenshot**: ![CI Pipeline]("C:\Users\Omar\Pictures\Screenshots\Screenshot 2025-07-29 191344.png")
 
 ---
 

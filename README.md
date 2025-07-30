@@ -94,7 +94,7 @@ fortstak-todo-list-devops-assessment/
 
 ### Verification
 - [x] Docker image: `0marmohamed/fortstak-todo-list-devops-assessment:latest`
-- **Screenshot**: ![CI Pipeline](C:\Users\Omar\Pictures\Screenshots\Screenshot 2025-07-29 191344.png)
+- **Screenshot**: ![CI Pipeline](![alt text](<Screenshot 2025-07-29 191552.png>))
 
 ---
 
@@ -113,7 +113,7 @@ fortstak-todo-list-devops-assessment/
 ### Verification
 - Docker v28.3.3 installed
 - `omar` in `docker` group
-- 📸 **Screenshot**: ![Ansible Output](screenshots/ansible-execution.png)
+- 📸 **Screenshot**: ![Ansible Output](![alt text](<Screenshot 2025-07-29 204550.png>))
 
 ---
 
@@ -128,8 +128,8 @@ fortstak-todo-list-devops-assessment/
 - App running at: http://192.168.44.147:5000
 - Watchtower scheduled at 4:00 AM
 - **Screenshot**: 
-  - ![Compose](screenshots/docker-compose-up.png)
-  - ![App Access](screenshots/app-access.png)
+  - ![Compose](![alt text](<Screenshot 2025-07-29 191410.png>))
+  - ![App Access](![alt text](<Screenshot 2025-07-29 191317.png>))
 
 ---
 
@@ -151,9 +151,9 @@ fortstak-todo-list-devops-assessment/
 - `kubectl get nodes` shows both nodes
 - App accessible at exposed NodePort
 - ArgoCD UI at: https://192.168.44.147:30443
-- **Screenshots**:
-  - ![K3s Nodes](screenshots/k3s-nodes.png)
-  - ![ArgoCD UI](screenshots/argocd-ui.png)
+- **App Access from pods Screenshots**:
+  - ![App Access from pod_1]:(![alt text](<Screenshot 2025-07-30 163527.png>))
+  - ![App Access from pod_2]:(![alt text](<Screenshot 2025-07-30 163542.png>))
 
 ---
 

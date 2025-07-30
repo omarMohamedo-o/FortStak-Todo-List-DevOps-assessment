@@ -113,7 +113,7 @@ fortstak-todo-list-devops-assessment/
 ### Verification
 - Docker v28.3.3 installed
 - `omar` in `docker` group
-- 📸 **Screenshot**: ![Ansible Output](![alt text](<Screenshot 2025-07-29 204550.png>))
+- 📸 **Screenshot**: ![Ansible Output](![alt text](<docs/Screenshot 2025-07-29 204550.png>))
 
 ---
 
@@ -128,8 +128,8 @@ fortstak-todo-list-devops-assessment/
 - App running at: http://192.168.44.147:5000
 - Watchtower scheduled at 4:00 AM
 - **Screenshot**: 
-  - ![Compose](![alt text](<Screenshot 2025-07-29 191410.png>))
-  - ![App Access](![alt text](<Screenshot 2025-07-29 191317.png>))
+  - ![Compose](![alt text](<docs/Screenshot 2025-07-29 191410.png>))
+  - ![App Access](![alt text](<docs/Screenshot 2025-07-29 191317.png>))
 
 ---
 
@@ -152,8 +152,8 @@ fortstak-todo-list-devops-assessment/
 - App accessible at exposed NodePort
 - ArgoCD UI at: https://192.168.44.147:30443
 - **App Access from pods Screenshots**:
-  - ![App Access from pod_1]:(![alt text](<Screenshot 2025-07-30 163527.png>))
-  - ![App Access from pod_2]:(![alt text](<Screenshot 2025-07-30 163542.png>))
+  - ![App Access from pod_1]:(![alt text](<docs/Screenshot 2025-07-30 163527.png>))
+  - ![App Access from pod_2]:(![alt text](<docs/Screenshot 2025-07-30 163542.png>))
 
 ---
 

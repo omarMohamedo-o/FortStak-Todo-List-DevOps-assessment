@@ -1,109 +1,191 @@
+<h1 align="center">FORTSTAK-TODO-LIST-DEVOPS-ASSESSMENT</h1>
 
-## Documentation
+<p align="center"><i>Transforming Tasks into Seamless Success Stories</i></p>
 
-[Documentation](https://linktodocumentation)
+<p align="center">
+  <img src="https://img.shields.io/badge/last%20commit-today-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/ejs-71.6%25-lightgrey?style=flat-square" />
+  <img src="https://img.shields.io/badge/languages-4-blue?style=flat-square" />
+</p>
 
-📝 To-Do List nodeJs
+<p align="center"><i>Built with the tools and technologies:</i></p>
 
-The to-do list application is a web-based application that allows users to create and manage a list of tasks. The user interface consists of a form to add new tasks, a list of all tasks, and controls to mark tasks as complete or delete them.
+<p align="center">
+  <img src="https://img.shields.io/badge/Express-black?logo=express&style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/JSON-black?logo=json&style=flat-square" />
+  <img src="https://img.shields.io/badge/Markdown-black?logo=markdown&style=flat-square" />
+  <img src="https://img.shields.io/badge/npm-red?logo=npm&style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/Mongoose-red?logo=mongoose&style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/.ENV-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/JavaScript-yellow?logo=javascript&style=flat-square&logoColor=black" />
+  <br />
+  <img src="https://img.shields.io/badge/EJS-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Nodemon-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Watchtower-lightblue?style=flat-square" />
+  <img src="https://img.shields.io/badge/Docker-blue?logo=docker&style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub%20Actions-blue?logo=githubactions&style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/YAML-red?style=flat-square&logo=yaml" />
+</p>
 
-To create the application, Node.js is used to set up the server and handle the logic of the application. Express.js is used to create the routes for the application, allowing the user to interact with the application through a web browser. EJS is used to create the views for the application, allowing the user to see the list of tasks and the form to add new tasks. CSS is used to style the application, making it visually appealing and easy to use.
 
-MongoDB and Mongoose are used to store the tasks in a database, allowing the user to add, delete, and update tasks as needed. Nodemon is used to monitor changes to the code and automatically restart the server, making it easy to develop and test the application.
+This repository contains the implementation of a DevOps project for the **Fortstak Internship Assessment**, deploying a Todo-List application across a multi-node environment. The project covers:
 
-When the user adds a new task using the form, Node.js and Express.js handle the request and store the task in the database using Mongoose. When the user views the list of tasks, EJS displays the tasks from the database in a list on the web page. When the user marks a task as complete or deletes a task, Node.js and Express.js handle the request and update the database using Mongoose.
+- CI/CD with GitHub Actions
+- Infrastructure automation with Ansible
+- Application deployment with Docker Compose
+- Kubernetes orchestration with k3s
+- GitOps using ArgoCD
 
-Overall, the todo list application using Node.js, Express.js, EJS, CSS, JavaScript, MongoDB, Mongoose, and Nodemon can be a great way to create a functional and interactive web application that allows users to manage their tasks online. With the right combination of technologies, it is possible to create an application that is both functional and aesthetically pleasing, making it easy for users to manage their tasks in a convenient and efficient way.
+---
 
-Technologies Used: NodeJS, ExpressJS, EJS, CSS, JavaScript, Nodemon, MongoDB, Mongoose.
-## Demo
+## 🗂️ Project Overview
 
-Under process...
-## Authors
+| Item                  | Details                                  |
+|-----------------------|------------------------------------------|
+| **Control Node**      | `ubuntu-master-node` (192.168.44.149)    |
+| **Worker Nodes**      | `ubuntu-worker-node-1` (192.168.44.147) <br> `ubuntu-worker-node-2` (192.168.44.148) |
+| **App Image**         | `marmohamed/fortstak-todo-list-devops-assessment:latest` |
+| **Database**          | MongoDB Atlas (connected via `MONGO_DB_URL`) |
+| **Registry**          | [DockerHub](https://hub.docker.com/u/0marmohamed) |
 
-- [@AnkitVishwakarma](https://github.com/Ankit6098)
+---
 
+## 📁 Project Structure
 
-## Features
-
-- Create, Update, and Delete Tasks: Enable users to create new tasks, update existing tasks (e.g., mark as completed, edit task details), and delete tasks they no longer need.
-- Task Categories provides Implement the ability for users to categorize their tasks into different categories (e.g., work, personal, shopping) or assign labels/tags to tasks for better organization and filtering.
-- MongoDb to store your the user data
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/Ankit6098/Todos-nodejs
 ```
 
-Go to the project directory and open index.html file
+fortstak-todo-list-devops-assessment/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+├── ansible/
+│   └── deploy-docker.yml
+├── inventory.ini
+├── ubuntu-worker-node-1/
+│   └── fortstak-todo-list/
+│       ├── docker-compose.yml
+│       └── .env
+├── k8s-manifests/
+│   ├── deployment.yml
+│   ├── service.yml
+│   ├── secret.yml
+│   └── argocd-app.yml
+├── screenshots/
+│   ├── ci-cd-pipeline-run.png
+│   ├── ansible-execution.png
+│   ├── docker-compose-up.png
+│   ├── app-access.png
+│   ├── k3s-nodes.png
+│   └── argocd-ui.png
+└── README.md
 
-```bash
-  cd Todos-nodejs
 ```
 
-Install the packages
+> `.env` contains sensitive variables and is **excluded via `.gitignore`**.
 
-```bash
-  npm install / npm i
-```
+---
 
-Start the Server
+## Part 1: CI/CD Pipeline
 
-```bash
-    npm start / nodemon start
-```
-## Acknowledgements
+### 🔧 Setup
+- GitHub Actions triggered on push to `main`.
+- Docker image built and pushed to DockerHub.
+- Secrets (`DOCKER_USERNAME`, `DOCKER_PASSWORD`) stored securely.
 
- - [nodemon](https://nodemon.io/)
- - [mongoDb](https://www.mongodb.com/)
- - [mongoose](https://mongoosejs.com/)
+### Verification
+- [x] Docker image: `0marmohamed/fortstak-todo-list-devops-assessment:latest`
+- **Screenshot**: ![CI Pipeline](screenshots/ci-cd-pipeline-run.png)
 
+---
 
-## Screenshots
+## Part 2: Ansible Configuration
 
-![225232515-4c100b6b-52e4-40f8-a6d4-85e30dc2f5e7](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/487f548f-7ca6-4183-9443-c88c9f79c3f0)
-![225232960-da554f1f-ba4a-41f8-9856-edaebe339d76](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/25515d2e-1d72-498d-8044-59a01c6b9127)
-![225238829-05433362-5b16-454c-92d5-5e536fe6912e](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/316d15ca-1fe8-4581-80b1-fc316340bba6)
-![225239140-226f8eae-d8b8-4055-8a68-d85d523c2422](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/44a0c418-449e-446f-8a8e-3c4e14fca8bf)
-![225239221-caf86f3d-ef17-4d18-80a6-c72123ff5444](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/2ee90ab0-95d4-44f4-80ac-b17b088ac1ce)
-![225239406-98b7ba7d-df97-4d27-bb66-596a32187d87](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/960ff353-1ce9-4ef8-94e4-10af09184fd2)
-![225239841-4b5d77f0-4a54-4339-b6b3-b6a1be6776b5](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/f5ffc3b8-480f-4d11-9a0b-c469e3c17e8e)
+### Setup
+- SSH keys configured manually (`~/.ssh/ansible_key`).
+- Ansible installed on control node and local WSL.
+- `deploy-docker.yml` used to install Docker + compose plugin.
 
+### Best Practices
+- Strict permissions: 600 for private keys.
+- Password auth disabled, SSH via key only.
+- Idempotent tasks (`state: present`).
 
-## Related
+### Verification
+- Docker v28.3.3 installed
+- `omar` in `docker` group
+- 📸 **Screenshot**: ![Ansible Output](screenshots/ansible-execution.png)
 
-Here are some other projects
+---
 
-[Alarm CLock - javascript](https://github.com/Ankit6098/Todos-nodejs)\
-[IMDb Clone - javascript](https://github.com/Ankit6098/IMDb-Clone)
+## Part 3: Docker Compose Deployment
 
+### Setup
+- Deployed on: `ubuntu-worker-node-1 (192.168.44.147)`
+- Services: `todo-app` & `watchtower`
+- Env variables (in `.env`): `MONGO_DB_URL`
 
-## 🚀 About Me
-I'm a full stack developer...
+### Verification
+- App running at: http://192.168.44.147:5000
+- Watchtower scheduled at 4:00 AM
+- **Screenshot**: 
+  - ![Compose](screenshots/docker-compose-up.png)
+  - ![App Access](screenshots/app-access.png)
 
+---
 
-# Hi, I'm Ankit! 👋
+## Part 4 (Bonus): Kubernetes & ArgoCD
 
-I'm a full stack developer 😎 ... Love to Develop Classic Unique fascinating and Eye Catching UI and Love to Create Projects and Building logics.
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ankithub.me/Resume/)
+### 🔧 Setup
+- Cluster: k3s on worker-node-1 (master), joined by worker-node-2
+- Deployed using:
+  - `deployment.yml` (app)
+  - `service.yml` (NodePort)
+  - `secret.yml` (MongoDB URI)
+- ArgoCD manages deployments via GitOps.
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColorwhite=)](https://www.linkedin.com/in/ankit-vishwakarma-6531221b0/)
+### ArgoCD Automation
+- Syncs from: `k8s-manifests/` path in this repo
+- Auto sync, prune, and self-heal enabled
 
+### Verification
+- `kubectl get nodes` shows both nodes
+- App accessible at exposed NodePort
+- ArgoCD UI at: https://192.168.44.147:30443
+- **Screenshots**:
+  - ![K3s Nodes](screenshots/k3s-nodes.png)
+  - ![ArgoCD UI](screenshots/argocd-ui.png)
 
-## Other Common Github Profile Sections
-🧠 I'm currently learning FullStack Developer Course from Coding Ninjas
+---
 
-📫 How to reach me ankitvis609@gmail.com
+## Troubleshooting
 
+| Issue                       | Fix/Explanation                                      |
+|----------------------------|------------------------------------------------------|
+| SSH Permission Denied      | Regenerated and copied SSH key manually              |
+| Docker Compose missing     | Installed plugin manually with `apt`                |
+| MongoDB Connection         | Whitelisted public IP in MongoDB Atlas              |
+| CrashLoopBackOff (Pod)     | Ensured secrets injected correctly; Atlas IP open   |
+| ArgoCD sync failure        | Fixed repo URL, secret mismatch, or pod health check|
 
-## 🛠 Skills
-React, Java, Javascript, HTML, CSS, Nodejs, ExpressJs, Mongodb, Mongoose...
+---
 
+## Best Practices Summary
 
-## Feedback
+| Category      | Applied Practices                                                  |
+|---------------|---------------------------------------------------------------------|
+| Security      | SSH keys, `.env`, K8s secrets, minimum port exposure                |
+| Idempotency   | Ansible `state: present`, Compose `restart: unless-stopped`, K8s strategies |
+| CI/CD         | GitHub Secrets, retries, cache layers                              |
+| Documentation | Comments, markdown structure, screenshot evidence                  |
 
-If you have any feedback, please reach out to us at ankitvis609@gmail.com
+---
 
+## 🎯 Next Steps
+
+- 📊 Monitoring (e.g., Prometheus, Grafana)
+
+---
+
+## Acknowledgments
+
+- **Fortstak** for the DevOps internship opportunity.

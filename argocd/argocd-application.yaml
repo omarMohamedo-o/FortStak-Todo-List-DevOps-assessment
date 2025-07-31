@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/omarMohamedo-o/FortStak-Todo-List-DevOps-assessment.git #https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+    repoURL: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
     targetRevision: HEAD
     path: k8s
 

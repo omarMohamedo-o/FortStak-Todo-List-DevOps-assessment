@@ -44,7 +44,7 @@ This repository contains the implementation of a DevOps project for the **Fortst
 |-----------------------|------------------------------------------|
 | **Control Node**      | `ubuntu-master-node` (192.168.44.149)    |
 | **Worker Nodes**      | `ubuntu-worker-node-1` (192.168.44.147) <br> `ubuntu-worker-node-2` (192.168.44.148) |
-| **App Image**         | `marmohamed/fortstak-todo-list-devops-assessment:latest` |
+| **App Image**         | `0marmohamed/fortstak-todo-list-devops-assessment:latest` |
 | **Database**          | MongoDB Atlas (connected via `MONGO_DB_URL`) |
 | **Registry**          | [DockerHub](https://hub.docker.com/u/0marmohamed) |
 
